@@ -4,6 +4,17 @@ description:
 icon: 'file-lines'
 ---
 
-import { FetchTemplatesReadme } from '/snippets/templates-readme.mdx';
+const url = 'https://raw.githubusercontent.com/Nexlayer/templates/main/README.md';
 
-<FetchTemplatesReadme />
+async function fetchAndConvert() {
+  try {
+    const response = await fetch(url);
+    const markdown = await response.text(); 
+  } catch (error) {
+      console.error('Process failed:', error);
+  }
+
+  return markdown;
+}
+
+{fetchAndConvert()}
