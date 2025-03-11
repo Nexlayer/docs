@@ -3,9 +3,10 @@ import ReactMarkdown from 'react-markdown';
 export const FetchTemplatesReadme = async () => {
   const url = 'https://raw.githubusercontent.com/Nexlayer/templates/main/README.md';
 
+  let markdown = "";
   try {
     const response = await fetch(url);
-    const markdown = await response.text();
+    markdown = await response.text();
   } catch (error) {
       console.error('Process failed:', error);
   }
