@@ -1,5 +1,3 @@
-const fs = require('fs');
-
 const url = 'https://raw.githubusercontent.com/Nexlayer/templates/main/README.md';
 
 
@@ -9,17 +7,17 @@ async function fetchAndConvert() {
     const markdown = await response.text();
 
     const frontmatter = `---
-title: Nexlayer Yaml
-description: 
-icon: 'file-lines'
----
-
-`;
-
-    const finalMDX = frontmatter + markdown;
-
+    title: Nexlayer Yaml
+    description: 
+    icon: 'file-lines'
+    ---
+    
+    `;
+  
+      const finalMDX = frontmatter + markdown;
+  
   } catch (error) {
-    console.error('Process failed:', error);
+      console.error('Process failed:', error);
   }
 }
 
