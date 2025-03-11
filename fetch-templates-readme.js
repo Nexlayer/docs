@@ -16,7 +16,7 @@ icon: 'file-lines'
 
 `;
 
-    export const finalMDX = frontmatter + markdown;
+    const finalMDX = frontmatter + markdown;
 
   } catch (error) {
     console.error('Process failed:', error);
