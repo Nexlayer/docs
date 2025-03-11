@@ -1,3 +1,5 @@
+import ReactMarkdown from 'react-markdown';
+
 export const FetchTemplatesReadme = async () => {
   const url = 'https://raw.githubusercontent.com/Nexlayer/templates/main/README.md';
 
@@ -8,5 +10,5 @@ export const FetchTemplatesReadme = async () => {
       console.error('Process failed:', error);
   }
 
-  return markdown;
+  return <div><ReactMarkdown>{markdown}</ReactMarkdown></div>
 }
