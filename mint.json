@@ -57,7 +57,7 @@
         "essentials/settings",
         "essentials/navigation",
         "essentials/reusable-snippets",
-        "essentials/nexlayer-yaml"
+        "essentials/nexlayer-deployment-yaml"
       ]
     },
     {
