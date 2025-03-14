@@ -1,27 +1,19 @@
 ---
 title: 'Nexlayer Deployment YAML'
-description: 'Developer's Quick Start Guide to Nexlayer YAML'
+description: "Developer's Quick Start Guide to Nexlayer YAML"
 icon: 'file-lines'
 ---
-
-import { Callout } from 'nextra-theme-docs'
-import { Cards, Card } from 'nextra-theme-docs'
-import { Steps } from 'nextra-theme-docs'
-import { Tab, Tabs } from 'nextra-theme-docs'
-import { Accordion } from 'nextra-theme-docs'
-import { CodeGroup } from 'nextra-theme-docs'
-import { FileTree } from 'nextra-theme-docs'
 
 # 🚀 Nexlayer YAML: Developer's Quick Start Guide
 
 Hello developers! Welcome to the Nexlayer YAML guide that gets you from zero to deployed in minutes. Whether you're a freelancer, indie developer, creator, or startup founder, this guide will help you deploy lightning-fast on Nexlayer AI Cloud.
 
-<Cards>
+<CardGroup>
   <Card title="Get Started" href="#-quick-start-deploy-in-5-minutes" icon="rocket" />
   <Card title="Key Concepts" href="#-yaml-building-blocks" icon="puzzle" />
   <Card title="Common App Patterns" href="#-common-app-patterns" icon="code" />
   <Card title="Pro Tips" href="#-pro-tips" icon="lightbulb" />
-</Cards>
+</CardGroup>
 
 ## 📋 Table of Contents
 
@@ -45,9 +37,9 @@ Hello developers! Welcome to the Nexlayer YAML guide that gets you from zero to 
 
 ## 🦾 ☁ What is Nexlayer?
 
-<Callout type="info">
+<Note>
   Nexlayer is an AI-powered cloud built for developers who want to ship faster, scale effortlessly, and skip the DevOps headaches.
-</Callout>
+</Note>
 
 Define your app's structure in a simple YAML file, and Nexlayer automates everything—provisioning, scaling, networking, and security—so you can focus on building, not configuring. No Kubernetes wrangling, no complex infra setup.
 
@@ -55,15 +47,15 @@ Unlike legacy platforms, Nexlayer is AI-native and designed for modern apps, AI 
 
 ## ⚡️ Why Nexlayer?
 
-<Cards num={2}>
-  <Card title="Zero DevOps" icon="check-circle">Write YAML, deploy, done.</Card>
-  <Card title="Auto-Scaling" icon="check-circle">Handles traffic spikes automatically.</Card>
-  <Card title="Built-in Security" icon="check-circle">Secrets management & encrypted storage.</Card>
-  <Card title="AI & ML Ready" icon="check-circle">Deploy AI models with zero friction.</Card>
-  <Card title="Effortless Networking" icon="check-circle">Services auto-discover, no networking configs.</Card>
-  <Card title="Simple Deployments" icon="check-circle">No infra setup, no YAML nightmares.</Card>
-  <Card title="Stack-Agnostic" icon="check-circle">Works with APIs, web apps, AI services, and more.</Card>
-</Cards>
+<CardGroup cols={2}>
+  <Card title="Zero DevOps">Write YAML, deploy, done.</Card>
+  <Card title="Auto-Scaling">Handles traffic spikes automatically.</Card>
+  <Card title="Built-in Security">Secrets management & encrypted storage.</Card>
+  <Card title="AI & ML Ready">Deploy AI models with zero friction.</Card>
+  <Card title="Effortless Networking">Services auto-discover, no networking configs.</Card>
+  <Card title="Simple Deployments">No infra setup, no YAML nightmares.</Card>
+  <Card title="Stack-Agnostic">Works with APIs, web apps, AI services, and more.</Card>
+</CardGroup>
 
 🚀 **Less setup, more shipping.**
 
@@ -72,27 +64,33 @@ Unlike legacy platforms, Nexlayer is AI-native and designed for modern apps, AI 
 Let's get your first app running on Nexlayer right now:
 
 <Steps>
-  ### Create a file named `nexlayer.yaml`
+  <Step title="Create a file named nexlayer.yaml">
+    First, create a new file called `nexlayer.yaml` in your project directory.
+  </Step>
   
-  ### Copy this starter template
+  <Step title="Copy this starter template">
+    Add the following YAML configuration to your file:
+    
+    ```yaml
+    application:
+      name: "my-first-app"
+      pods:
+        - name: webapp
+          image: nginx:latest
+          path: /
+          servicePorts:
+            - 80
+    ```
+  </Step>
   
-  ```yaml
-  application:
-    name: "my-first-app"
-    pods:
-      - name: webapp
-        image: nginx:latest
-        path: /
-        servicePorts:
-          - 80
-  ```
-  
-  ### Deploy it!
+  <Step title="Deploy it!">
+    Run the deployment command and your app will be live in minutes.
+  </Step>
 </Steps>
 
-<Callout type="info" emoji="💡">
+<Note>
   If you prefer a more interactive way to create your `nexlayer.yaml`, try our **Template Builder** at [app.nexlayer.io/template-builder](https://app.nexlayer.io/template-builder). It lets you visually configure your application and generates the YAML for you—no manual coding needed!
-</Callout>
+</Note>
 
 That's it! You just deployed a web service to Nexlayer. Let's understand what you did...
 
@@ -100,42 +98,36 @@ That's it! You just deployed a web service to Nexlayer. Let's understand what yo
 
 Nexlayer YAML has a simple structure:
 
-<FileTree>
-  <FileTree.Folder name="application" defaultOpen>
-    <FileTree.File name="name: Your app's name" />
-    <FileTree.File name="url: Your app's URL (optional)" />
-    <FileTree.File name="registryLogin (optional for private images)" />
-    <FileTree.Folder name="pods: List of containers" defaultOpen>
-      <FileTree.Folder name="Pod 1 (like a web server)" defaultOpen>
-        <FileTree.File name="name: pod name" />
-        <FileTree.File name="image: container image" />
-        <FileTree.File name="path: web route" />
-        <FileTree.Folder name="servicePorts: exposed ports">
-          <FileTree.File name="- port number" />
-        </FileTree.Folder>
-        <FileTree.Folder name="vars: environment variables">
-          <FileTree.File name="ENV_VAR1: value1" />
-          <FileTree.File name="ENV_VAR2: value2" />
-        </FileTree.Folder>
-        <FileTree.Folder name="volumes: persistent storage">
-          <FileTree.Folder name="- name: volume name">
-            <FileTree.File name="size: storage size" />
-            <FileTree.File name="mountPath: storage location" />
-          </FileTree.Folder>
-        </FileTree.Folder>
-        <FileTree.Folder name="secrets: sensitive data">
-          <FileTree.Folder name="- name: secret name">
-            <FileTree.File name="data: secret content" />
-            <FileTree.File name="mountPath: secret location" />
-            <FileTree.File name="fileName: secret file name" />
-          </FileTree.Folder>
-        </FileTree.Folder>
-      </FileTree.Folder>
-      <FileTree.Folder name="Pod 2 (like a database)" />
-      <FileTree.Folder name="Pod 3 (like a cache)" />
-    </FileTree.Folder>
-  </FileTree.Folder>
-</FileTree>
+```
+application
+├── name: Your app's name
+├── url: Your app's URL (optional)
+├── registryLogin (optional for private images)
+└── pods: List of containers
+    ├── Pod 1 (like a web server)
+    │   ├── name: pod name
+    │   ├── image: container image
+    │   ├── path: web route
+    │   ├── servicePorts: exposed ports
+    │   │   └── - port number
+    │   ├── vars: environment variables
+    │   │   ├── ENV_VAR1: value1
+    │   │   └── ENV_VAR2: value2
+    │   ├── volumes: persistent storage
+    │   │   └── - name: volume name
+    │   │       ├── size: storage size
+    │   │       └── mountPath: storage location
+    │   └── secrets: sensitive data
+    │       └── - name: secret name
+    │           ├── data: secret content
+    │           ├── mountPath: secret location
+    │           └── fileName: secret file name
+    │
+    ├── Pod 2 (like a database)
+    │   └── ...
+    └── Pod 3 (like a cache)
+        └── ...
+```
 
 Each pod is a container that runs a specific part of your application. They automatically talk to each other!
 
@@ -189,81 +181,10 @@ This diagram shows how Nexlayer's automatic service discovery works:
 
 Each pod can reference other pods using the <pod-name>.pod syntax without worrying about IP addresses.
 
-### YAML Structure Map
-
-This map shows the hierarchical structure of a Nexlayer YAML file for an AI-powered application:
-
-<FileTree>
-  <FileTree.Folder name="application" defaultOpen>
-    <FileTree.File name='name: "ai-powered-app"' />
-    <FileTree.File name='url: "https://myai.example.com" (optional)' />
-    <FileTree.Folder name="registryLogin (optional)">
-      <FileTree.File name='registry: "registry.example.com"' />
-      <FileTree.File name='username: "myuser"' />
-      <FileTree.File name='personalAccessToken: "mypat123"' />
-    </FileTree.Folder>
-    <FileTree.Folder name="pods" defaultOpen>
-      <FileTree.Folder name="next-frontend" defaultOpen>
-        <FileTree.File name='name: "nextjs"' />
-        <FileTree.File name='image: "vercel/next:latest"' />
-        <FileTree.File name='path: "/"' />
-        <FileTree.File name="servicePorts: [3000]" />
-        <FileTree.Folder name="vars">
-          <FileTree.File name='BACKEND_URL: "http://fastapi.pod:8000"' />
-        </FileTree.Folder>
-      </FileTree.Folder>
-      <FileTree.Folder name="fastapi-backend" defaultOpen>
-        <FileTree.File name='name: "fastapi"' />
-        <FileTree.File name='image: "tiangolo/fastapi:latest"' />
-        <FileTree.File name='path: "/api"' />
-        <FileTree.File name="servicePorts: [8000]" />
-        <FileTree.Folder name="vars">
-          <FileTree.File name='DATABASE_URL: "postgresql://postgres:password@postgres.pod:5432/mydb"' />
-          <FileTree.File name='PINECONE_URL: "http://pinecone.pod:8080"' />
-          <FileTree.File name='OPENAI_API_KEY: "sk-..."' />
-        </FileTree.Folder>
-        <FileTree.Folder name="secrets">
-          <FileTree.File name='name: "api-keys"' />
-          <FileTree.File name='data: "your-openai-key-here"' />
-          <FileTree.File name='mountPath: "/app/secrets"' />
-          <FileTree.File name='fileName: "openai.key"' />
-        </FileTree.Folder>
-      </FileTree.Folder>
-      <FileTree.Folder name="postgres-db">
-        <FileTree.File name='name: "postgres"' />
-        <FileTree.File name='image: "postgres:14"' />
-        <FileTree.File name="servicePorts: [5432]" />
-        <FileTree.Folder name="vars">
-          <FileTree.File name='POSTGRES_USER: "postgres"' />
-          <FileTree.File name='POSTGRES_PASSWORD: "password"' />
-          <FileTree.File name='POSTGRES_DB: "mydb"' />
-        </FileTree.Folder>
-        <FileTree.Folder name="volumes">
-          <FileTree.File name='name: "postgres-data"' />
-          <FileTree.File name='size: "5Gi"' />
-          <FileTree.File name='mountPath: "/var/lib/postgresql/data"' />
-        </FileTree.Folder>
-      </FileTree.Folder>
-      <FileTree.Folder name="pinecone-vector-db">
-        <FileTree.File name='name: "pinecone"' />
-        <FileTree.File name='image: "pinecone/pinecone-server:latest"' />
-        <FileTree.File name="servicePorts: [8080]" />
-        <FileTree.Folder name="volumes">
-          <FileTree.File name='name: "vector-data"' />
-          <FileTree.File name='size: "10Gi"' />
-          <FileTree.File name='mountPath: "/data"' />
-        </FileTree.Folder>
-      </FileTree.Folder>
-    </FileTree.Folder>
-  </FileTree.Folder>
-</FileTree>
-
-This visualization helps you understand how different elements of your configuration relate to each other.
-
 ## 🛠️ Common App Patterns
 
-<Tabs items={['Simple Website', 'Frontend + Backend + Database', 'AI Application']}>
-  <Tab>
+<Tabs>
+  <Tab title="Simple Website">
     ```yaml
     application:
       name: "my-website"
@@ -275,7 +196,7 @@ This visualization helps you understand how different elements of your configura
             - 80
     ```
   </Tab>
-  <Tab>
+  <Tab title="Frontend + Backend + Database">
     ```yaml
     application:
       name: "fullstack-app"
@@ -310,7 +231,7 @@ This visualization helps you understand how different elements of your configura
               mountPath: /var/lib/postgresql/data
     ```
   </Tab>
-  <Tab>
+  <Tab title="AI Application">
     ```yaml
     application:
       name: "ai-app"
@@ -360,15 +281,15 @@ This visualization helps you understand how different elements of your configura
 | **mountPath** | Within a volume configuration, specifies the internal file system location where the volume attaches. Must start with a "/". | This tells Nexlayer exactly where to plug in your volume within a running container. When set correctly, your live app can read and save data smoothly—ensuring a seamless user experience. | `mountPath: "/var/lib/postgresql/data"` |
 | **secrets** | Securely mount sensitive data into your app's configuration files. Each secret includes a name, data (raw text or Base64-encoded), a mountPath (must start with "/"), and a fileName to name the mounted secret file. | Secrets keep your sensitive info locked away safely. By using secrets, you protect passwords and keys while ensuring your app runs securely—giving your users peace of mind. | `secrets: - name: nextauth-secret data: "myrandomsecret" mountPath: "/var/secrets/nextauth" fileName: secret.txt` |
 
-<Callout type="info">
-  Note: There are additional configuration options available in the schema that are managed internally by Nexlayer.
-</Callout>
+<Note>
+  There are additional configuration options available in the schema that are managed internally by Nexlayer.
+</Note>
 
 ## 🔌 How Pods Talk to Each Other
 
-<Callout type="success">
+<Tip>
   The magic of Nexlayer: pods automatically discover each other! Use `<pod-name>.pod` in your configuration:
-</Callout>
+</Tip>
 
 ```yaml
 vars:
@@ -420,182 +341,38 @@ application:
 
 ## 🚨 Common Mistakes to Avoid
 
-<Accordion type="multiple" defaultValue={["item-1"]}>
-  <Accordion.Item value="item-1">
-    <Accordion.Trigger>
-      ❌ Forgetting the `application:` block at the start
-    </Accordion.Trigger>
-    <Accordion.Content>
-      ✅ Always begin your YAML with `application:`
-    </Accordion.Content>
-  </Accordion.Item>
-  <Accordion.Item value="item-2">
-    <Accordion.Trigger>
-      name (application level)
-    </Accordion.Trigger>
-    <Accordion.Content>
-      The overall name (unique identifier) for your application.
-    </Accordion.Content>
-  </Accordion.Item>
-  <Accordion.Item value="item-3">
-    <Accordion.Trigger>
-      url (optional)
-    </Accordion.Trigger>
-    <Accordion.Content>
-      A permanent domain URL for your app. Include this key if you have a custom permanent URL for your deployment.
-    </Accordion.Content>
-  </Accordion.Item>
-  <Accordion.Item value="item-4">
-    <Accordion.Trigger>
-      registryLogin (optional)
-    </Accordion.Trigger>
-    <Accordion.Content>
-      Authentication details for private container registries. Include the registry hostname, username, and a personal access token.
-    </Accordion.Content>
-  </Accordion.Item>
-  <Accordion.Item value="item-5">
-    <Accordion.Trigger>
-      pods
-    </Accordion.Trigger>
-    <Accordion.Content>
-      A list that contains all your individual pod configurations (i.e., your services or containers).
-    </Accordion.Content>
-  </Accordion.Item>.Trigger>
-      ❌ Using the same pod name twice
-    </Accordion.Trigger>
-    <Accordion.Content>
-      ✅ Each pod name must be unique
-    </Accordion.Content>
-  </Accordion.Item>
-  <Accordion.Item value="item-3">
-    <Accordion.Trigger>
-      ❌ Mixing up `path` and `mountPath`
-    </Accordion.Trigger>
-    <Accordion.Content>
-      ✅ `path` is for URLs (like `/api`), `mountPath` is for volumes (like `/data`)
-    </Accordion.Content>
-  </Accordion.Item>
-  <Accordion.Item value="item-4">
-    <Accordion.Trigger>
-      ❌ Forgetting servicePorts
-    </Accordion.Trigger>
-    <Accordion.Content>
-      ✅ Each pod needs servicePorts to be accessible
-    </Accordion.Content>
-  </Accordion.Item>
-  <Accordion.Item value="item-5">
-    <Accordion.Trigger>
-      ❌ Incorrect pod references
-    </Accordion.Trigger>
-    <Accordion.Content>
-      ✅ Use `<pod-name>.pod` to connect services (not IP addresses)
-    </Accordion.Content>
-  </Accordion.Item>
-  <Accordion.Item value="item-6">
-    <Accordion.Trigger>
-      ❌ Trying to use Kubernetes or Docker Compose syntax
-    </Accordion.Trigger>
-    <Accordion.Content>
-      ✅ Nexlayer has its own unique YAML schema
-    </Accordion.Content>
-  </Accordion.Item>
-  <Accordion.Item value="item-7">
-    <Accordion.Trigger>
-      ❌ DO NOT add `resources.limits` manually to your YAML
-    </Accordion.Trigger>
-    <Accordion.Content>
-      ✅ Nexlayer **automatically** configures CPU & Memory for each service.  
-      ✅ If you add `resources.limits` manually, it will be ignored.
-    </Accordion.Content>
-  </Accordion.Item>
-  <Accordion.Item value="item-8">
-    <Accordion.Trigger>
-      ❌ Misunderstanding entrypoint and command behavior
-    </Accordion.Trigger>
-    <Accordion.Content>
-      ✅ If entrypoint and command are explicitly defined in Docker Compose, the Nexlayer-CLI will translate them into Nexlayer YAML.  
-      ✅ If they are not defined in Docker Compose, the Nexlayer-CLI omits them, defaulting to the Dockerfile's built-in values.
-    </Accordion.Content>
-  </Accordion.Item>
-</Accordion>
-
-### Keys Inside Each Pod 
-
-<Callout type="info">
-  Each pod in the pods array is a separate service powering your app. Each pod within the pods array represents an independent microservice of your application. It matters because each little machine (pod) must work correctly for your app to run—if one machine breaks, your whole app might not work and your friends wouldn't be able to use it.
-</Callout>
-
-<Accordion type="single">
-  <Accordion.Item value="item-1">
-    <Accordion.Trigger>
-      name
-    </Accordion.Trigger>
-    <Accordion.Content>
-      A unique name to identify this service.
-    </Accordion.Content>
-  </Accordion.Item>
-  <Accordion.Item value="item-2">
-    <Accordion.Trigger>
-      image
-    </Accordion.Trigger>
-    <Accordion.Content>
-      Specifies the Docker container image (including repository info) to deploy for that pod.
-    </Accordion.Content>
-  </Accordion.Item>
-  <Accordion.Item value="item-3">
-    <Accordion.Trigger>
-      path
-    </Accordion.Trigger>
-    <Accordion.Content>
-      For web-facing pods, defines the external URL route where users access the service. This is different from mountPath.
-    </Accordion.Content>
-  </Accordion.Item>
-  <Accordion.Item value="item-4">
-    <Accordion.Trigger>
-      servicePorts
-    </Accordion.Trigger>
-    <Accordion.Content>
-      Defines the ports for external access or inter-service communication.
-    </Accordion.Content>
-  </Accordion.Item>
-  <Accordion.Item value="item-5">
-    <Accordion.Trigger>
-      vars
-    </Accordion.Trigger>
-    <Accordion.Content>
-      Runtime configuration settings and secrets management. Can use `<pod-name>.pod` to reference other pods.
-    </Accordion.Content>
-  </Accordion.Item>
-  <Accordion.Item value="item-6">
-    <Accordion.Trigger>
-      volumes
-    </Accordion.Trigger>
-    <Accordion.Content>
-      Optional persistent storage settings that ensure data isn't lost between restarts.
-    </Accordion.Content>
-  </Accordion.Item>
-  <Accordion.Item value="item-7">
-    <Accordion.Trigger>
-      mountPath
-    </Accordion.Trigger>
-    <Accordion.Content>
-      Within a volume configuration, specifies the internal file system location where the volume attaches. This is different from path—it's internal, not a URL!
-    </Accordion.Content>
-  </Accordion.Item>
-  <Accordion.Item value="item-8">
-    <Accordion.Trigger>
-      secrets
-    </Accordion.Trigger>
-    <Accordion.Content>
-      Securely mount sensitive data into your app's configuration files.
-    </Accordion.Content>
-  </Accordion.Item>
-</Accordion>
+<AccordionGroup>
+  <Accordion title="❌ Forgetting the `application:` block at the start">
+    ✅ Always begin your YAML with `application:`
+  </Accordion>
+  <Accordion title="❌ Using the same pod name twice">
+    ✅ Each pod name must be unique
+  </Accordion>
+  <Accordion title="❌ Mixing up `path` and `mountPath`">
+    ✅ `path` is for URLs (like `/api`), `mountPath` is for volumes (like `/data`)
+  </Accordion>
+  <Accordion title="❌ Forgetting servicePorts">
+    ✅ Each pod needs servicePorts to be accessible
+  </Accordion>
+  <Accordion title="❌ Incorrect pod references">
+    ✅ Use `<pod-name>.pod` to connect services (not IP addresses)
+  </Accordion>
+  <Accordion title="❌ Trying to use Kubernetes or Docker Compose syntax">
+    ✅ Nexlayer has its own unique YAML schema
+  </Accordion>
+  <Accordion title="❌ DO NOT add `resources.limits` manually to your YAML">
+    ✅ Nexlayer **automatically** configures CPU & Memory for each service.  
+    ✅ If you add `resources.limits` manually, it will be ignored.
+  </Accordion>
+  <Accordion title="❌ Misunderstanding entrypoint and command behavior">
+    ✅ If entrypoint and command are explicitly defined in Docker Compose, the Nexlayer-CLI will translate them into Nexlayer YAML.  
+    ✅ If they are not defined in Docker Compose, the Nexlayer-CLI omits them, defaulting to the Dockerfile's built-in values.
+  </Accordion>
+</AccordionGroup>
 
 ## 🎮 Full Example: Gaming Leaderboard App
 
-<CodeGroup>
-```yaml game-leaderboard.yaml
+```yaml
 application:
   name: "game-leaderboard"
   pods:
@@ -636,12 +413,11 @@ application:
           size: 1Gi
           mountPath: /data
 ```
-</CodeGroup>
 
 ## 📱 Real-World Use Cases
 
-<Tabs items={['Social Media App', 'E-commerce Platform', 'AI Assistant']}>
-  <Tab>
+<Tabs>
+  <Tab title="Social Media App">
     <ul>
       <li>Frontend (React/Next.js)</li>
       <li>Backend API</li>
@@ -650,7 +426,7 @@ application:
       <li>Object storage for images</li>
     </ul>
   </Tab>
-  <Tab>
+  <Tab title="E-commerce Platform">
     <ul>
       <li>Storefront</li>
       <li>Product API</li>
@@ -660,7 +436,7 @@ application:
       <li>Search service</li>
     </ul>
   </Tab>
-  <Tab>
+  <Tab title="AI Assistant">
     <ul>
       <li>Web interface</li>
       <li>AI model service</li>
@@ -673,104 +449,151 @@ application:
 
 ## 🔄 Important Distinctions
 
-<Accordion type="single">
-  <Accordion.Item value="item-1">
-    <Accordion.Trigger>
-      path vs. mountPath
-    </Accordion.Trigger>
-    <Accordion.Content>
-      <ul>
-        <li><strong>path</strong>: URL route (e.g., `/api`) for web access</li>
-        <li><strong>mountPath</strong>: Container path (e.g., `/data`) for internal storage</li>
-      </ul>
-    </Accordion.Content>
-  </Accordion.Item>
-  <Accordion.Item value="item-2">
-    <Accordion.Trigger>
-      Pod References
-    </Accordion.Trigger>
-    <Accordion.Content>
-      <ul>
-        <li>Use `<pod-name>.pod` for communication between services</li>
-        <li>Example: `mongodb://mongo.pod:27017/mydb`</li>
-      </ul>
-    </Accordion.Content>
-  </Accordion.Item>
-  <Accordion.Item value="item-3">
-    <Accordion.Trigger>
-      Not Kubernetes or Docker Compose
-    </Accordion.Trigger>
-    <Accordion.Content>
-      <ul>
-        <li>Nexlayer's YAML is unique and simpler</li>
-        <li>No multi-container pods or complex networking like Kubernetes</li>
-        <li>Different volume handling than Docker Compose</li>
-      </ul>
-    </Accordion.Content>
-  </Accordion.Item>
-  <Accordion.Item value="item-4">
-    <Accordion.Trigger>
-      CPU & Memory Limits Are Managed by Nexlayer
-    </Accordion.Trigger>
-    <Accordion.Content>
-      Nexlayer automatically optimizes <strong>CPU and Memory limits</strong> for your workloads. These values <strong>cannot be modified by users</strong> and are dynamically injected when your YAML is processed by the Nexlayer API.
-    </Accordion.Content>
-  </Accordion.Item>
-</Accordion>
+<AccordionGroup>
+  <Accordion title="path vs. mountPath">
+    <ul>
+      <li><strong>path</strong>: URL route (e.g., `/api`) for web access</li>
+      <li><strong>mountPath</strong>: Container path (e.g., `/data`) for internal storage</li>
+    </ul>
+  </Accordion>
+  <Accordion title="Pod References">
+    <ul>
+      <li>Use `<pod-name>.pod` for communication between services</li>
+      <li>Example: `mongodb://mongo.pod:27017/mydb`</li>
+    </ul>
+  </Accordion>
+  <Accordion title="Not Kubernetes or Docker Compose">
+    <ul>
+      <li>Nexlayer's YAML is unique and simpler</li>
+      <li>No multi-container pods or complex networking like Kubernetes</li>
+      <li>Different volume handling than Docker Compose</li>
+    </ul>
+  </Accordion>
+  <Accordion title="CPU & Memory Limits Are Managed by Nexlayer">
+    Nexlayer automatically optimizes <strong>CPU and Memory limits</strong> for your workloads. These values <strong>cannot be modified by users</strong> and are dynamically injected when your YAML is processed by the Nexlayer API.
+  </Accordion>
+</AccordionGroup>
 
 ## 🎯 Pro Tips
 
-<Cards>
-  <Card title="Start small" icon="baby">Get a simple version working first, then add more pods</Card>
-  <Card title="Use specific image tags" icon="tag">Avoid `:latest` in production</Card>
-  <Card title="Plan your storage" icon="hard-drive">Estimate how much data you'll store</Card>
-  <Card title="Keep secrets secret" icon="lock">Never put API keys directly in vars</Card>
-  <Card title="Add comments" icon="message-circle">Document what each pod does for your team</Card>
-  <Card title="Group related services" icon="layers">Keep related pods in one application</Card>
-</Cards>
+<CardGroup cols={3}>
+  <Card title="Start small">Get a simple version working first, then add more pods</Card>
+  <Card title="Use specific image tags">Avoid `:latest` in production</Card>
+  <Card title="Plan your storage">Estimate how much data you'll store</Card>
+  <Card title="Keep secrets secret">Never put API keys directly in vars</Card>
+  <Card title="Add comments">Document what each pod does for your team</Card>
+  <Card title="Group related services">Keep related pods in one application</Card>
+</CardGroup>
 
-<Callout type="info" emoji="🔧">
+<Tip>
   <strong>Use the Template Builder</strong> - For complex applications with multiple pods, use the <strong>Template Builder</strong> at <a href="https://app.nexlayer.io/template-builder">app.nexlayer.io/template-builder</a>. It provides a visual interface to design and test your YAML configurations, helping you spot errors and optimize connections before deployment.
-</Callout>
+</Tip>
 
-<Callout type="success" emoji="⚡">
+<Note>
   <strong>Let Nexlayer optimize performance for you</strong>
   <ul>
     <li><strong>No need to configure CPU & Memory limits manually</strong></li>
     <li>Nexlayer <strong>dynamically injects the right values</strong> based on your app's needs.</li>
   </ul>
-</Callout>
+</Note>
 
 ## 🚦 Next Steps
 
 Once you're comfortable with the basics:
 
 <Steps>
-  ### Set up CI to automatically test and push your app to Nexlayer
-  
-  ### Add monitoring and logging
-  
-  ### Implement advanced patterns like microservices
-  
-  ### Optimize your resource usage
+  <Step title="Set up CI/CD">
+    Set up CI to automatically test and push your app to Nexlayer
+  </Step>
+  <Step title="Add monitoring">
+    Add monitoring and logging
+  </Step>
+  <Step title="Implement advanced patterns">
+    Implement advanced patterns like microservices
+  </Step>
+  <Step title="Optimize resources">
+    Optimize your resource usage
+  </Step>
 </Steps>
 
-<Callout type="info" emoji="🚀">
+<Tip>
   <strong>Explore Advanced Tools</strong>: Streamline your deployment process with the <strong>Template Builder</strong> at <a href="https://app.nexlayer.io/template-builder">app.nexlayer.io/template-builder</a>. It's perfect for visually designing your application and integrating with CI/CD pipelines.
-</Callout>
+</Tip>
 
 ## 📚 Detailed Schema Reference
 
 ### Top-Level Keys
 
-<Accordion type="single">
-  <Accordion.Item value="item-1">
-    <Accordion.Trigger>
-      application
-    </Accordion.Trigger>
-    <Accordion.Content>
-      The top-level container for your deployment configuration. It wraps all other settings and always begins your YAML file.
-    </Accordion.Content>
-  </Accordion.Item>
-  <Accordion.Item value="item-2">
-    <Accordion
+<AccordionGroup>
+  <Accordion title="application">
+    The top-level container for your deployment configuration. It wraps all other settings and always begins your YAML file.
+  </Accordion>
+  <Accordion title="name (application level)">
+    The overall name (unique identifier) for your application.
+  </Accordion>
+  <Accordion title="url (optional)">
+    A permanent domain URL for your app. Include this key if you have a custom permanent URL for your deployment.
+  </Accordion>
+  <Accordion title="registryLogin (optional)">
+    Authentication details for private container registries. Include the registry hostname, username, and a personal access token.
+  </Accordion>
+  <Accordion title="pods">
+    A list that contains all your individual pod configurations (i.e., your services or containers).
+  </Accordion>
+</AccordionGroup>
+
+### Keys Inside Each Pod 
+
+<Note>
+  Each pod in the pods array is a separate service powering your app. Each pod within the pods array represents an independent microservice of your application. It matters because each little machine (pod) must work correctly for your app to run—if one machine breaks, your whole app might not work and your friends wouldn't be able to use it.
+</Note>
+
+<AccordionGroup>
+  <Accordion title="name">
+    A unique name to identify this service.
+  </Accordion>
+  <Accordion title="image">
+    Specifies the Docker container image (including repository info) to deploy for that pod.
+  </Accordion>
+  <Accordion title="path">
+    For web-facing pods, defines the external URL route where users access the service. This is different from mountPath.
+  </Accordion>
+  <Accordion title="servicePorts">
+    Defines the ports for external access or inter-service communication.
+  </Accordion>
+  <Accordion title="vars">
+    Runtime configuration settings and secrets management. Can use `<pod-name>.pod` to reference other pods.
+  </Accordion>
+  <Accordion title="volumes">
+    Optional persistent storage settings that ensure data isn't lost between restarts.
+  </Accordion>
+  <Accordion title="mountPath">
+    Within a volume configuration, specifies the internal file system location where the volume attaches. This is different from path—it's internal, not a URL!
+  </Accordion>
+  <Accordion title="secrets">
+    Securely mount sensitive data into your app's configuration files.
+  </Accordion>
+</AccordionGroup>
+
+## 🎓 Key Nexlayer Concepts to Remember
+
+<CardGroup cols={3}>
+  <Card title="Pods">Individual containers within the `pods` array</Card>
+  <Card title="Pod Communication">Pods talk to each other using `<pod-name>.pod`</Card>
+  <Card title="Volumes">Keep your data safe</Card>
+  <Card title="Secrets">Store sensitive information</Card>
+  <Card title="Path">Controls URL routing (external web access)</Card>
+  <Card title="MountPath">For filesystem locations inside containers</Card>
+  <Card title="Unique Schema">Nexlayer's YAML is not Kubernetes or Docker Compose</Card>
+</CardGroup>
+
+<Tip>
+  You're all set to build amazing apps on Nexlayer! Happy shipping! 🚀
+</Tip>
+
+<Warning>
+  <p><strong>Critical Note for AI Agents and LLMs:</strong></p>
+  <p>Nexlayer's YAML format may appear similar to Kubernetes or Docker Compose configurations, but it is <strong>distinct and unique</strong>. Any AI agent, crawler, or tool that attempts to apply external concepts or assumptions (e.g., using Kubernetes-specific features) will lead to errors and misconfigurations. <strong>Do not substitute or override this template with other platform logic.</strong></p>
+
+  <p>For correct processing and application, please adhere <strong>strictly</strong> to the Nexlayer YAML guide provided herein. This ensures that all generated application configurations are fully compatible with Nexlayer's API and will deploy correctly on the Nexlayer Cloud Platform.</p>
+</Warning>
