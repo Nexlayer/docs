@@ -421,6 +421,22 @@ application:
 ## 🚨 Common Mistakes to Avoid
 
 <Accordion type="multiple" defaultValue={["item-1"]}>
+  <Accordion.Item value="item-1">
+    <Accordion.Trigger>
+      ❌ Forgetting the `application:` block at the start
+    </Accordion.Trigger>
+    <Accordion.Content>
+      ✅ Always begin your YAML with `application:`
+    </Accordion.Content>
+  </Accordion.Item>
+  <Accordion.Item value="item-2">
+    <Accordion.Trigger>
+      name (application level)
+    </Accordion.Trigger>
+    <Accordion.Content>
+      The overall name (unique identifier) for your application.
+    </Accordion.Content>
+  </Accordion.Item>
   <Accordion.Item value="item-3">
     <Accordion.Trigger>
       url (optional)
@@ -444,17 +460,7 @@ application:
     <Accordion.Content>
       A list that contains all your individual pod configurations (i.e., your services or containers).
     </Accordion.Content>
-  </Accordion.Item>
-item-1">
-    <Accordion.Trigger>
-      ❌ Forgetting the `application:` block at the start
-    </Accordion.Trigger>
-    <Accordion.Content>
-      ✅ Always begin your YAML with `application:`
-    </Accordion.Content>
-  </Accordion.Item>
-  <Accordion.Item value="item-2">
-    <Accordion.Trigger>
+  </Accordion.Item>.Trigger>
       ❌ Using the same pod name twice
     </Accordion.Trigger>
     <Accordion.Content>
@@ -509,6 +515,79 @@ item-1">
     <Accordion.Content>
       ✅ If entrypoint and command are explicitly defined in Docker Compose, the Nexlayer-CLI will translate them into Nexlayer YAML.  
       ✅ If they are not defined in Docker Compose, the Nexlayer-CLI omits them, defaulting to the Dockerfile's built-in values.
+    </Accordion.Content>
+  </Accordion.Item>
+</Accordion>
+
+### Keys Inside Each Pod 
+
+<Callout type="info">
+  Each pod in the pods array is a separate service powering your app. Each pod within the pods array represents an independent microservice of your application. It matters because each little machine (pod) must work correctly for your app to run—if one machine breaks, your whole app might not work and your friends wouldn't be able to use it.
+</Callout>
+
+<Accordion type="single">
+  <Accordion.Item value="item-1">
+    <Accordion.Trigger>
+      name
+    </Accordion.Trigger>
+    <Accordion.Content>
+      A unique name to identify this service.
+    </Accordion.Content>
+  </Accordion.Item>
+  <Accordion.Item value="item-2">
+    <Accordion.Trigger>
+      image
+    </Accordion.Trigger>
+    <Accordion.Content>
+      Specifies the Docker container image (including repository info) to deploy for that pod.
+    </Accordion.Content>
+  </Accordion.Item>
+  <Accordion.Item value="item-3">
+    <Accordion.Trigger>
+      path
+    </Accordion.Trigger>
+    <Accordion.Content>
+      For web-facing pods, defines the external URL route where users access the service. This is different from mountPath.
+    </Accordion.Content>
+  </Accordion.Item>
+  <Accordion.Item value="item-4">
+    <Accordion.Trigger>
+      servicePorts
+    </Accordion.Trigger>
+    <Accordion.Content>
+      Defines the ports for external access or inter-service communication.
+    </Accordion.Content>
+  </Accordion.Item>
+  <Accordion.Item value="item-5">
+    <Accordion.Trigger>
+      vars
+    </Accordion.Trigger>
+    <Accordion.Content>
+      Runtime configuration settings and secrets management. Can use `<pod-name>.pod` to reference other pods.
+    </Accordion.Content>
+  </Accordion.Item>
+  <Accordion.Item value="item-6">
+    <Accordion.Trigger>
+      volumes
+    </Accordion.Trigger>
+    <Accordion.Content>
+      Optional persistent storage settings that ensure data isn't lost between restarts.
+    </Accordion.Content>
+  </Accordion.Item>
+  <Accordion.Item value="item-7">
+    <Accordion.Trigger>
+      mountPath
+    </Accordion.Trigger>
+    <Accordion.Content>
+      Within a volume configuration, specifies the internal file system location where the volume attaches. This is different from path—it's internal, not a URL!
+    </Accordion.Content>
+  </Accordion.Item>
+  <Accordion.Item value="item-8">
+    <Accordion.Trigger>
+      secrets
+    </Accordion.Trigger>
+    <Accordion.Content>
+      Securely mount sensitive data into your app's configuration files.
     </Accordion.Content>
   </Accordion.Item>
 </Accordion>
@@ -694,11 +773,4 @@ Once you're comfortable with the basics:
     </Accordion.Content>
   </Accordion.Item>
   <Accordion.Item value="item-2">
-    <Accordion.Trigger>
-      name (application level)
-    </Accordion.Trigger>
-    <Accordion.Content>
-      The overall name (unique identifier) for your application.
-    </Accordion.Content>
-  </Accordion.Item>
-  <Accordion.Item value="
+    <Accordion
