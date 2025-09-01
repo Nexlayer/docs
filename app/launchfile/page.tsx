@@ -387,7 +387,7 @@ application:
             </h2>
             <p className="text-gray-300">Every YAML has these main parts (think of them as building blocks)</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-8">
             <Card className="bg-[#0a0a0a] border-[#333] text-center">
               <CardHeader>
                 <div className="flex justify-center mb-2">
@@ -444,7 +444,7 @@ application:
                 <TabsTrigger 
                   key={key} 
                   value={key}
-                  className="data-[state=active]:bg-[#22B4C8] data-[state=active]:text-black rounded-md"
+                  className="text-xs md:text-sm lg:text-base max-md:font-normal data-[state=active]:bg-[#22B4C8] data-[state=active]:text-black rounded-md"
                 >
                   {example.title}
                 </TabsTrigger>
@@ -463,7 +463,7 @@ application:
                   <CardContent>
                     <div className="relative">
                       <YamlCodeBlock code={example.yaml} showLineNumbers={true} />
-                      <Button
+                      {/* <Button
                         size="sm"
                         variant="outline"
                         className="absolute top-4 right-4 border-[#333] text-white hover:bg-[#111]"
@@ -474,7 +474,7 @@ application:
                         ) : (
                           <Copy className="h-4 w-4" />
                         )}
-                      </Button>
+                      </Button> */}
                     </div>
                     {key === "simple-website" && (
                       <div className="mt-4 p-4 bg-blue-500/10 border border-blue-500/20 rounded-lg">
@@ -527,15 +527,15 @@ application:
               <p className="text-gray-300">From YAML to production in just 4 steps</p>
             </div>
             <div className="flex justify-center">
-              <div className="flex items-center space-x-8">
-                <div className="text-center">
+              <div className="flex flex-col max-lg:space-y-6 lg:flex-row max-lg:justify-center items-center space-x-8">
+                <div className="max-lg:ml-6 text-center">
                   <div className="w-12 h-12 bg-[#22B4C8] rounded-full flex items-center justify-center mx-auto mb-2">
                     <FileText className="h-6 w-6 text-black" />
                   </div>
                   <p className="text-white font-semibold">Write YAML</p>
                   <p className="text-gray-400 text-sm">Create your nexlayer.yaml file</p>
                 </div>
-                <div className="text-[#22B4C8] text-2xl">→</div>
+                <div className="text-[#22B4C8] text-2xl max-lg:rotate-90">→</div>
                 <div className="text-center">
                   <div className="w-12 h-12 bg-[#22B4C8] rounded-full flex items-center justify-center mx-auto mb-2">
                     <Zap className="h-6 w-6 text-black" />
@@ -543,7 +543,7 @@ application:
                   <p className="text-white font-semibold">Build & Push Image</p>
                   <p className="text-gray-400 text-sm">Create dockerfile, build and push image to DockerHub or GitHub registry.</p>
                 </div>
-                <div className="text-[#22B4C8] text-2xl">→</div>
+                <div className="text-[#22B4C8] text-2xl max-lg:rotate-90">→</div>
                 <div className="text-center">
                   <div className="w-12 h-12 bg-[#22B4C8] rounded-full flex items-center justify-center mx-auto mb-2">
                     <Rocket className="h-6 w-6 text-black" />
@@ -551,7 +551,7 @@ application:
                   <p className="text-white font-semibold">Deploy</p>
                   <p className="text-gray-400 text-sm">Use MCP, API, or your own CI or Github Action Workflow</p>
                 </div>
-                <div className="text-[#22B4C8] text-2xl">→</div>
+                <div className="text-[#22B4C8] text-2xl max-lg:rotate-90">→</div>
                 <div className="text-center">
                   <div className="w-12 h-12 bg-[#22B4C8] rounded-full flex items-center justify-center mx-auto mb-2">
                     <Globe className="h-6 w-6 text-black" />
@@ -575,7 +575,7 @@ application:
             <h2 className="text-2xl font-bold text-white mb-4">Essential Knowledge</h2>
             <p className="text-gray-300">Key concepts and deployment options to get you started</p>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-2 gap-4 xl:gap-8">
             <Card className="bg-[#0a0a0a] border-[#333]">
               <CardHeader>
                 <CardTitle className="text-white flex items-center gap-2">
@@ -667,7 +667,7 @@ application:
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid lg:grid-cols-2 2xl:grid-cols-4 gap-6">
                 <div>
                   <h4 className="text-white font-semibold mb-3 flex items-center gap-2">
                     <Zap className="h-4 w-4 text-[#22B4C8]" />

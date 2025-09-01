@@ -39,7 +39,7 @@ export default function WelcomePage() {
           </div>
 
           {/* What is Nexlayer */}
-          <div className="max-w-4xl mx-auto mb-16">
+          <div className="max-w-[1152px] mx-auto mb-16">
             <div className="bg-[#0a0a0a] rounded-xl p-8 border border-[#333]">
               <h2 className="text-3xl font-bold text-white mb-6 text-center">What is Nexlayer?</h2>
               <p className="text-gray-300 mb-8 text-lg leading-relaxed">
@@ -52,7 +52,7 @@ export default function WelcomePage() {
                 But it's not a black box: developers still have full control to customize deployments with powerful Launchfile (nexlayer.yaml) configurations and templates.
               </p>
               
-              <div className="grid md:grid-cols-3 gap-8">
+              <div className="grid lg:grid-cols-3 gap-8">
                 <div className="text-center">
                   <div className="w-16 h-16 bg-[#22B4C8] rounded-full flex items-center justify-center mx-auto mb-4">
                     <Zap className="h-8 w-8 text-black" />
@@ -90,16 +90,16 @@ export default function WelcomePage() {
               Why Choose Nexlayer?
             </h2>
             
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid lg:grid-cols-2 gap-8">
               {/* Agent-driven Development */}
-              <div className="bg-[#0a0a0a] rounded-xl p-8 border border-[#333] h-[500px] flex flex-col">
+              <div className="bg-[#0a0a0a] rounded-xl p-8 border border-[#333] flex flex-col">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 bg-[#22B4C8] rounded-lg flex items-center justify-center flex-shrink-0">
                     <Code className="h-6 w-6 text-black" />
                   </div>
                   <h3 className="text-white font-bold text-xl">Agent-driven Development</h3>
                 </div>
-                <p className="text-gray-300 mb-6 flex-grow">
+                <p className="text-gray-300 mb-6">
                   Built for AI agents and modern workflows. Deploy with natural language using the Nexlayer-MCP.
                 </p>
                 <ul className="text-gray-400 space-y-3">
@@ -119,14 +119,14 @@ export default function WelcomePage() {
               </div>
 
               {/* Full-Stack Ready */}
-              <div className="bg-[#0a0a0a] rounded-xl p-8 border border-[#333] h-[500px] flex flex-col">
+              <div className="bg-[#0a0a0a] rounded-xl p-8 border border-[#333] flex flex-col">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 bg-[#22B4C8] rounded-lg flex items-center justify-center flex-shrink-0">
                     <Database className="h-6 w-6 text-black" />
                   </div>
                   <h3 className="text-white font-bold text-xl">Full-Stack Ready</h3>
                 </div>
-                <p className="text-gray-300 mb-6 flex-grow">
+                <p className="text-gray-300 mb-6">
                   Choose the right path for your data and services. Bring your own database, run Postgres or Redis inside Nexlayer, or deploy tools like cloudbeaver or pgAdmin alongside your app.
                 </p>
                 <ul className="text-gray-400 space-y-3">
@@ -146,14 +146,14 @@ export default function WelcomePage() {
               </div>
 
               {/* Zero Configuration */}
-              <div className="bg-[#0a0a0a] rounded-xl p-8 border border-[#333] h-[500px] flex flex-col">
+              <div className="bg-[#0a0a0a] rounded-xl p-8 border border-[#333] flex flex-col">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 bg-[#22B4C8] rounded-lg flex items-center justify-center flex-shrink-0">
                     <Rocket className="h-6 w-6 text-black" />
                   </div>
                   <h3 className="text-white font-bold text-xl">Zero Configuration</h3>
                 </div>
-                <p className="text-gray-300 mb-6 flex-grow">
+                <p className="text-gray-300 mb-6 ">
                   Deploy any repo without wrestling with setup. Nexlayer automatically injects resources so you can focus on building.
                 </p>
                 <ul className="text-gray-400 space-y-3">
@@ -173,14 +173,14 @@ export default function WelcomePage() {
               </div>
 
               {/* Production-Ready */}
-              <div className="bg-[#0a0a0a] rounded-xl p-8 border border-[#333] h-[500px] flex flex-col">
+              <div className="bg-[#0a0a0a] rounded-xl p-8 border border-[#333] flex flex-col">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 bg-[#22B4C8] rounded-lg flex items-center justify-center flex-shrink-0">
                     <Shield className="h-6 w-6 text-black" />
                   </div>
                   <h3 className="text-white font-bold text-xl">Production-Ready</h3>
                 </div>
-                <p className="text-gray-300 mb-6 flex-grow">
+                <p className="text-gray-300 mb-6">
                   Scale from prototype to production with containerized deployments. Global multi-region and global failover planned for enterprise accounts.
                 </p>
                 <ul className="text-gray-400 space-y-3">
@@ -211,16 +211,16 @@ export default function WelcomePage() {
                 Choose your path to start building with Nexlayer
               </p>
               
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid place-content-center lg:grid-cols-2 gap-6">
                 <Link href="/learn/mcp-quickstart">
-                  <Button className="w-full h-16 text-lg bg-[#22B4C8] hover:bg-[#1a9ba8] text-black font-semibold">
+                  <Button className="w-max lg:w-full h-16 text-lg bg-[#22B4C8] hover:bg-[#1a9ba8] text-black font-semibold">
                     <Play className="mr-2 h-5 w-5" />
                     Start with MCP Quickstart
                   </Button>
                 </Link>
                 
                 <Link href="/launchfile">
-                  <Button variant="outline" className="w-full h-16 text-lg border-[#22B4C8] text-[#22B4C8] hover:bg-[#22B4C8] hover:text-black font-semibold">
+                  <Button variant="outline" className="max-w-[285px] w-full h-16 text-lg border-[#22B4C8] text-[#22B4C8] hover:bg-[#22B4C8] hover:text-black font-semibold">
                     <Code className="mr-2 h-5 w-5" />
                     Explore YAML Guide
                   </Button>

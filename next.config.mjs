@@ -21,9 +21,6 @@ const withMDX = createMDX({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Remove static export for development - only use for production builds
-  // output: 'export', // Commented out for faster development
-  basePath: '/documentation',
   eslint: {
     ignoreDuringBuilds: true,
   },

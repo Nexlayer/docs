@@ -175,7 +175,7 @@ export default function Sidebar() {
   }
 
   return (
-    <div className="w-64 bg-[#191919] h-screen sticky top-0 overflow-y-auto border-r border-[#333333]" style={{
+    <div className="w-64 bg-[#191919] h-screen sticky top-0 overflow-y-hidden border-r border-[#333333]" style={{
       backgroundImage: 'url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nexlayer-background-grid-K7zVWFIHgHj17Jb8BwSJP3hjcgqRrz.svg")'
     }}>
       <div className="p-4">

@@ -33,10 +33,10 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
+            <h1 className="sm:pt-12 text-5xl md:text-6xl font-bold text-white mb-4">
               Deploy in 5 Minutes
             </h1>
-            <p className="text-xl text-gray-300 mb-8">
+            <p className="text-xl text-gray-300">
               Choose your path: AI-powered deployment with MCP or manual YAML configuration
             </p>
           </motion.div>
@@ -55,7 +55,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
+          <div className="grid lg:grid-cols-2 gap-8 mb-12">
             {/* MCP Path */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}

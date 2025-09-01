@@ -262,7 +262,7 @@ jobs:
               Deploy Options
             </h2>
             
-            <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <div className="grid lg:grid-cols-2 gap-6 mb-8">
               <div className="bg-[#0a0a0a] rounded-xl p-6 border border-[#333]">
                 <h3 className="text-xl font-bold text-white mb-4">Via Playground</h3>
                 <p className="text-gray-300 mb-4">
@@ -286,7 +286,7 @@ jobs:
                   Deploy directly using the command line for automated workflows.
                 </p>
                 <div className="bg-[#111] rounded-lg p-4 border border-[#333]">
-                  <code className="text-[#d4d4d4] text-sm">
+                  <code className="text-[#d4d4d4] text-sm break-all">
                     curl -X POST https://app.nexlayer.io/startUserDeployment \<br/>
                     &nbsp;&nbsp;-H "Content-Type: text/x-yaml" \<br/>
                     &nbsp;&nbsp;--data-binary @custom-fullstack.yaml
@@ -327,13 +327,13 @@ jobs:
               <p className="text-gray-300 mb-8">
                 Get your enterprise-grade fullstack application running in minutes with this template.
               </p>
-              <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <div className="flex flex-col md:flex-row justify-center gap-4">
                 <a 
                   href="https://app.nexlayer.io/playground/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
-                  <Button className="bg-[#22B4C8] hover:bg-[#1DA3B6] text-black px-8 py-6 rounded-full text-lg">
+                  <Button className="max-w-[228px] w-full bg-[#22B4C8] hover:bg-[#1DA3B6] text-black px-8 py-6 rounded-full text-lg">
                     Deploy Now
                   </Button>
                 </a>

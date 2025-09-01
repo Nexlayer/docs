@@ -22,7 +22,7 @@ export default function Navbar() {
     <nav className="border-b border-[#333333] bg-[#191919]/80 backdrop-blur-md sticky top-0 z-50" style={{
       backgroundImage: 'url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nexlayer-background-grid-K7zVWFIHgHj17Jb8BwSJP3hjcgqRrz.svg")'
     }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
@@ -44,7 +44,7 @@ export default function Navbar() {
                 </div>
               </Link>
             </div>
-            <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
+            <div className="hidden ml-2 md:ml-6 sm:flex space-x-2 md:space-x-8">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
