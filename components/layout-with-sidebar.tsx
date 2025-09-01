@@ -13,7 +13,6 @@ export default function LayoutWithSidebar({
       {/* Sidebar */}
       <Sidebar />
       
-      {/* Main Content */}
       <div className="flex-1 overflow-auto">
         <main className="min-h-screen">
           {children}
