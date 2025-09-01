@@ -10,7 +10,6 @@ export default function LayoutWithSidebar({
 }) {
   return (
     <div className="flex min-h-screen bg-gray-950">
-      {/* Sidebar */}
       <Sidebar />
       
       <div className="flex-1 overflow-auto">
