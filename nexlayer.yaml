@@ -1,0 +1,9 @@
+application:
+  name: "nexlayer-documentation"
+  pods:
+    - name: static-site
+      path: "/"
+      image: ghcr.io/Nexlayer/documentation:latest
+      servicePorts:
+        - 80
+    

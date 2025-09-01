@@ -1,0 +1,719 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Nexlayer API",
+    "description": "API for the Nexlayer Application",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://app.nexlayer.io"
+    }
+  ],
+  "paths": {
+    "/startUserDeployment": {
+      "post": {
+        "summary": "Start User Deployment",
+        "description": "This endpoint accepts a YAML file as input. Example usage with curl: ```curl -X POST \"https://app.nexlayer.io/startUserDeployment\" -H \"Content-Type: text/x-yaml\" --data-binary @nexlayer.yaml```",
+        "parameters": [
+          {
+            "name": "sessionToken",
+            "in": "path",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/startUserDeploymentResponse"
+                }
+              }
+            },
+            "description": "Deployment started successfully"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "text/x-yaml": {
+              "schema": {
+                "$ref": "#/components/schemas/startUserDeploymentRequestBody"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/updateUserDeployment": {
+      "post": {
+        "summary": "Update User Deployment",
+        "description": "This endpoint accepts a YAML file as input. Example usage with curl: ```curl -X POST \"https://app.nexlayer.io/updateUserDeployment\" -H \"Content-Type: text/x-yaml\" --data-binary @nexlayer.yaml```",
+        "parameters": [
+          {
+            "name": "sessionToken",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/startUserDeploymentResponse"
+                }
+              }
+            },
+            "description": "Deployment updated successfully"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "text/x-yaml": {
+              "schema": {
+                "$ref": "#/components/schemas/startUserDeploymentRequestBody"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/feedback": {
+      "post": {
+        "summary": "Send Feedback",
+        "description": "Send feedback to Nexlayer. Example usage with curl: ```curl -X POST https://app.nexlayer.io/feedback -H \"Content-type: application/json\" -d '{\"sessionID\": \"B9wNA4eSNdy6P\", \"text\": \"Testing through curl\"}'```",
+        "responses": {
+          "200": {
+            "description": "Feedback sent successfully",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string",
+                  "example": "OK"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/feedback"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/checkProfile": {
+      "options": {
+        "summary": "Check Profile",
+        "description": "Check user profile and authentication status",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "example": ""
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/extendDeployment": {
+      "post": {
+        "summary": "Extend Deployment",
+        "description": "Extend a deployment given a nexlayer session token and application name",
+        "responses": {
+          "200": {
+            "description": "Deployment extended successfully",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string",
+                  "example": "Application Complete-Test-App has been extended. Environment will expire in 150 minutes. 0 extension(s) remaining."
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Application not found or invalid token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Application not found"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/extendDeploymentRequestBody"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/claimDeployment": {
+      "post": {
+        "summary": "Claim Deployment",
+        "description": "Claim a deployment given a nexlayer session token and application name",
+        "responses": {
+          "200": {
+            "description": "Deployment claimed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/claimDeploymentResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/claimDeploymentRequestBody"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/addDeploymentReservation": {
+      "post": {
+        "summary": "Add a Deployment Reservation",
+        "description": "Add a deployment reservation given a nexlayer session token and application name",
+        "responses": {
+          "200": {
+            "description": "Reservation added successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/addDeploymentReservationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Plan restriction - Requires Scale or Conquer plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "User is not on the Scale or Conquer plan. Please upgrade your plan to add a reservation."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/addDeploymentReservationRequestBody"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/removeDeploymentReservation": {
+      "post": {
+        "summary": "Remove a Deployment Reservation",
+        "description": "Remove a deployment reservation given a nexlayer session token and application name",
+        "responses": {
+          "200": {
+            "description": "Reservation removed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/removeDeploymentReservationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Already removed - Reservation was already cleaned up",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Application Complete-Test-App reservation has already been removed."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/removeDeploymentReservationRequestBody"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/removeReservations": {
+      "post": {
+        "summary": "Remove All Reservations",
+        "description": "Remove all reservations given a nexlayer session token",
+        "responses": {
+          "200": {
+            "description": "All reservations removed successfully",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string",
+                  "example": "Application reservations have been removed. If deployments have reached their time limits, application sites will be removed within 10 minutes."
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/removeReservationsRequestBody"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getReservations/{sessionToken}": {
+      "get": {
+        "summary": "Get All Reservations",
+        "description": "Get all reservations given a nexlayer session token",
+        "parameters": [
+          {
+            "name": "sessionToken",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getReservationsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/schema": {
+      "get": {
+        "summary": "Get Schema",
+        "description": "Get the nexlayer.yaml schema",
+        "responses": {
+          "200": {
+            "description": "Schema as JSON for nexlayer.yaml",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/schemaResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/validate": {
+      "post": {
+        "summary": "Validate nexlayer.yaml file",
+        "description": "Validate a nexlayer.yaml file contents",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/validateResponse"
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "application": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "startUserDeploymentResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Deployment started successfully"
+          },
+          "url": {
+            "type": "string",
+            "example": "https://jolly-tapir-complete-test-app.alpha.nexlayer.ai"
+          },
+          "sessionToken": {
+            "type": "string",
+            "example": "dCf0NdAQ64j6"
+          },
+          "applicationName": {
+            "type": "string",
+            "example": "Complete-Test-App"
+          },
+          "environment": {
+            "type": "string",
+            "example": "jolly-tapir"
+          },
+          "status": {
+            "type": "object",
+            "properties": {
+              "environment": {
+                "type": "string",
+                "example": "This environment will expire in 30 minutes."
+              },
+              "pods": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "example": "test-pod"
+                    },
+                    "status": {
+                      "type": "string",
+                      "example": "Pending"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "extend": {
+            "type": "object",
+            "properties": {
+              "message": {
+                "type": "string",
+                "example": "To extend your environment for another 120 minutes, post the sessionToken and applicationName given in this response to the /extendDeployment endpoint. You have 1 extensions remaining."
+              },
+              "extendURL": {
+                "type": "string",
+                "example": "curl -X POST https://app.nexlayer.io/extendDeployment -H \"Content-type: application/json\" -d '{\"sessionToken\": <sessionToken>, \"applicationName\": <applicationName>}'"
+              }
+            }
+          },
+          "claim": {
+            "type": "object",
+            "properties": {
+              "message": {
+                "type": "string",
+                "example": "To claim this environment, post the sessionToken and applicationName given in this response to the /claimDeployment endpoint."
+              },
+              "claimURL": {
+                "type": "string",
+                "example": "curl -X POST https://app.nexlayer.io/claimDeployment -H \"Content-type: application/json\" -d '{\"sessionToken\": <sessionToken>, \"applicationName\": <applicationName>}'"
+              }
+            }
+          },
+          "info": {
+            "type": "string",
+            "example": "Your sessionToken will be used for authentication and your applicationName will be used to identify your deployment. Please save these items for future use."
+          }
+        },
+        "required": [
+          "message",
+          "url",
+          "sessionToken",
+          "applicationName",
+          "environment",
+          "status",
+          "extend",
+          "claim",
+          "info"
+        ]
+      },
+      "feedback": {
+        "type": "object",
+        "properties": {
+          "sessionID": {
+            "type": "string",
+            "example": "B9wNA4eSNdy6P",
+            "description": "Session ID for the feedback"
+          },
+          "text": {
+            "type": "string",
+            "example": "Testing through curl",
+            "description": "Feedback text content"
+          }
+        },
+        "required": [
+          "sessionID",
+          "text"
+        ]
+      },
+      "extendDeploymentRequestBody": {
+        "type": "object",
+        "properties": {
+          "applicationName": {
+            "type": "string",
+            "example": "Complete-Test-App"
+          },
+          "sessionToken": {
+            "type": "string",
+            "example": "dCf0NdAQ64j6"
+          }
+        },
+        "required": [
+          "applicationName",
+          "sessionToken"
+        ]
+      },
+      "extendDeploymentResponse": {
+        "type": "string",
+        "example": "Application Complete-Test-App has been extended. Environment will expire in 150 minutes. 0 extension(s) remaining."
+      },
+      "claimDeploymentRequestBody": {
+        "type": "object",
+        "properties": {
+          "applicationName": {
+            "type": "string",
+            "example": "Complete-Test-App"
+          },
+          "sessionToken": {
+            "type": "string",
+            "example": "dCf0NdAQ64j6"
+          }
+        },
+        "required": [
+          "applicationName",
+          "sessionToken"
+        ]
+      },
+      "claimDeploymentResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "You're almost there! Visit https://app.nexlayer.io/claim/dCf0NdAQ64j6 to finalize your deployment."
+          },
+          "claimUrl": {
+            "type": "string",
+            "example": "https://app.nexlayer.io/claim/dCf0NdAQ64j6"
+          },
+          "claimToken": {
+            "type": "string",
+            "example": "dCf0NdAQ64j6"
+          }
+        },
+        "required": [
+          "message",
+          "claimUrl",
+          "claimToken"
+        ]
+      },
+      "addDeploymentReservationRequestBody": {
+        "type": "object",
+        "properties": {
+          "applicationName": {
+            "type": "string",
+            "example": "Complete-Test-App"
+          },
+          "sessionToken": {
+            "type": "string",
+            "example": "dCf0NdAQ64j6"
+          }
+        },
+        "required": [
+          "applicationName",
+          "sessionToken"
+        ]
+      },
+      "addDeploymentReservationResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Application Complete-Test-App reservation has been added."
+          }
+        },
+        "required": [
+          "message"
+        ]
+      },
+      "removeDeploymentReservationRequestBody": {
+        "type": "object",
+        "properties": {
+          "applicationName": {
+            "type": "string",
+            "example": "Complete-Test-App"
+          },
+          "sessionToken": {
+            "type": "string",
+            "example": "dCf0NdAQ64j6"
+          }
+        },
+        "required": [
+          "applicationName",
+          "sessionToken"
+        ]
+      },
+      "removeDeploymentReservationResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Application Complete-Test-App reservation has been removed. Application site will be removed within the next 10 minutes."
+          }
+        },
+        "required": [
+          "message"
+        ]
+      },
+      "removeReservationsRequestBody": {
+        "type": "object",
+        "properties": {
+          "sessionToken": {
+            "type": "string",
+            "example": "dCf0NdAQ64j6"
+          }
+        },
+        "required": [
+          "sessionToken"
+        ]
+      },
+      "removeReservationsResponse": {
+        "type": "string",
+        "example": "Application reservations have been removed. If deployments have reached their time limits, application sites will be removed within 10 minutes."
+      },
+      "getReservationsResponse": {
+        "type": "object",
+        "properties": {
+          "reservedDeployments": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "applicationName": {
+                  "type": "string",
+                  "example": "Complete-Test-App"
+                },
+                "url": {
+                  "type": "string",
+                  "example": "https://jolly-tapir-complete-test-app.alpha.nexlayer.ai"
+                }
+              },
+              "required": [
+                "applicationName",
+                "url"
+              ]
+            }
+          }
+        },
+        "required": [
+          "reservedDeployments"
+        ]
+      },
+      "schemaResponse": {
+        "type": "object",
+        "description": "Complete YAML schema for nexlayer.yaml files"
+      },
+      "validateResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Nexlayer YAML file is valid."
+          }
+        },
+        "required": [
+          "message"
+        ]
+      },
+      "startUserDeploymentRequestBody": {
+        "type": "string",
+        "format": "binary",
+        "description": "The uploaded file must be a valid YAML file."
+      }
+    }
+  }
+}
