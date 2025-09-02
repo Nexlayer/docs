@@ -193,7 +193,7 @@ export default function FAQPage() {
                   Join our Discord
                 </a>
                 <a
-                  href="https://github.com/Nexlayer/documentation/issues"
+                  href="https://github.com/Nexlayer/docs/issues"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-6 py-3 border border-[#22B4C8] text-[#22B4C8] font-semibold rounded-lg hover:bg-[#22B4C8] hover:text-black transition-colors"
