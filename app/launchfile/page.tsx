@@ -439,17 +439,35 @@ application:
             <p className="text-gray-300">Copy, customize, and deploy these configurations</p>
           </div>
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid w-full grid-cols-4 bg-[#0a0a0a] border border-[#333] p-1">
-              {Object.entries(examples).map(([key, example]) => (
-                <TabsTrigger 
-                  key={key} 
-                  value={key}
-                  className="text-xs md:text-sm lg:text-base max-md:font-normal data-[state=active]:bg-[#22B4C8] data-[state=active]:text-black rounded-md"
-                >
-                  {example.title}
-                </TabsTrigger>
-              ))}
-            </TabsList>
+            {/* Responsive TabsList: horizontal scroll on small screens, 4-column grid on sm+ */}
+            <div className="w-full bg-[#0a0a0a] rounded-md border border-[#333] p-1">
+              <TabsList className="hidden sm:grid w-full grid-cols-4 gap-1">
+                {Object.entries(examples).map(([key, example]) => (
+                  <TabsTrigger 
+                    key={key} 
+                    value={key}
+                    className="text-xs md:text-sm lg:text-base max-md:font-normal data-[state=active]:bg-[#22B4C8] data-[state=active]:text-black rounded-md"
+                  >
+                    {example.title}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+
+              {/* Small screens: horizontal scroll with snap and no-shrink on triggers */}
+              <div className="sm:hidden overflow-x-auto -mx-1 px-o.5 rounded-md">
+                <TabsList className="flex w-max gap-2 items-center snap-x snap-mandatory rounded-md">
+                  {Object.entries(examples).map(([key, example]) => (
+                    <TabsTrigger
+                      key={key}
+                      value={key}
+                      className="flex-shrink-0 snap-start text-sm lg:text-base max-md:font-normal data-[state=active]:bg-[#22B4C8] data-[state=active]:text-black rounded-md p-2"
+                    >
+                      {example.title}
+                    </TabsTrigger>
+                  ))}
+                </TabsList>
+              </div>
+            </div>
 
             {Object.entries(examples).map(([key, example]) => (
               <TabsContent key={key} value={key} className="mt-8">
