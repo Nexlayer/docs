@@ -116,25 +116,6 @@
         }
       }
     },
-    "/checkProfile": {
-      "options": {
-        "summary": "Check Profile",
-        "description": "Check user profile and authentication status",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "string",
-                  "example": ""
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/extendDeployment": {
       "post": {
         "summary": "Extend Deployment",
