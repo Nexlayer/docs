@@ -318,7 +318,7 @@
         }
       }
     },
-    "/getReservations/{sessionToken}": {
+    "/getReservations": {
       "get": {
         "summary": "Get All Reservations",
         "description": "Get all reservations given a nexlayer session token",
