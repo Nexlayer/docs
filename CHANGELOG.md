@@ -155,7 +155,7 @@ To contribute to this changelog:
 
 For questions about releases or changes:
 
-- **GitHub Issues**: [Create an issue](https://github.com/Nexlayer/documentation/issues)
+- **GitHub Issues**: [Create an issue](https://github.com/Nexlayer/docs/issues)
 - **Discord**: [Join our community](https://discord.gg/EBW93bQZ)
 - **Documentation**: Check the [docs](https://docs.nexlayer.com)
 

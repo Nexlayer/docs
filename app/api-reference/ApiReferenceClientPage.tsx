@@ -82,7 +82,7 @@ export default function ApiReferenceClientPage() {
                 height={24}
               />
               <Link
-                href="https://github.com/Nexlayer/documentation/issues"
+                href="https://github.com/Nexlayer/docs/issues"
                 target="_blank"
                 rel="noopener noreferrer"
               >

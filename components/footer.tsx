@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="text-sm text-gray-400 mb-4 sm:mb-0">© 2025 Nexlayer. All rights reserved.</div>
         <div className="flex space-x-6">
           <Link
-            href="https://github.com/Nexlayer/documentation/issues"
+            href="https://github.com/Nexlayer/docs/issues"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-gray-400 hover:text-gray-300 transition-colors"
@@ -23,7 +23,7 @@ export default function Footer() {
             X.com
           </Link>
           <Link
-            href="https://community.nexlayer.com/"
+            href="https://discord.gg/Xr7f2tk3"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-gray-400 hover:text-gray-300 transition-colors"
