@@ -200,8 +200,8 @@ application:
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex items-center justify-center mb-6">
-              <Rocket className="h-8 w-8 text-[#22B4C8] mr-3" />
+            <div className="flex items-start justify-center mb-6">
+              <Rocket className="h-8 w-8 text-[#22B4C8] mr-3 pt-1" />
               <h1 className="text-4xl md:text-5xl font-bold text-white">
                 Nexlayer YAML Guide
               </h1>
@@ -234,7 +234,7 @@ application:
           className="mb-16"
         >
           <div className="bg-[#0a0a0a] rounded-xl p-8 border border-[#333]">
-            <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+            <h2 className="text-2xl font-bold text-white mb-6 flex items-start gap-3">
               <Code className="h-6 w-6 text-[#22B4C8]" />
               What is Nexlayer YAML?
             </h2>
@@ -381,7 +381,7 @@ application:
           className="mb-16"
         >
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-white mb-4 flex items-center justify-center gap-2">
+            <h2 className="text-2xl font-bold text-white mb-4 flex items-start justify-center gap-2">
               <FileText className="h-6 w-6 text-[#22B4C8]" />
               Anatomy of a Nexlayer YAML
             </h2>
