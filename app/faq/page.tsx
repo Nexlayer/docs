@@ -109,7 +109,7 @@ export default function FAQPage() {
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Questions? We got answers. Don't see your answer?{" "}
             <a 
-              href="https://discord.gg/EBW93bQZ" 
+              href="https://discord.gg/U26X9mmYnP" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-[#22B4C8] hover:underline"
@@ -185,7 +185,7 @@ export default function FAQPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="https://discord.gg/EBW93bQZ"
+                  href="https://discord.gg/U26X9mmYnP"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-6 py-3 bg-[#22B4C8] text-black font-semibold rounded-lg hover:bg-[#1a9ba8] transition-colors"
