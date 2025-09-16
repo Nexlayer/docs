@@ -69,7 +69,7 @@ export default function Sidebar({ setSidebarOpen }: SidebarProps) {
     },
     {
       name: 'Feature requests',
-      path: 'https://discord.gg/EBW93bQZ',
+      path: 'https://discord.gg/U26X9mmYnP',
       icon: Rocket,
       external: true,
     },

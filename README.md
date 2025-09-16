@@ -445,4 +445,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Need help?** Open an issue on GitHub or join our [Discord community](https://discord.gg/EBW93bQZ).
+**Need help?** Open an issue on GitHub or join our [Discord community](https://discord.gg/U26X9mmYnP).

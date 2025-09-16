@@ -23,7 +23,7 @@ export default function Footer() {
             X.com
           </Link>
           <Link
-            href="https://discord.gg/Xr7f2tk3"
+            href="https://discord.gg/U26X9mmYnP"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-gray-400 hover:text-gray-300 transition-colors"

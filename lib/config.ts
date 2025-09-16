@@ -9,7 +9,7 @@ export const siteConfig: SiteConfig = {
   links: {
     twitter: 'https://twitter.com/nexlayer',
     github: 'https://github.com/Nexlayer/documentation',
-    discord: 'https://discord.gg/EBW93bQZ',
+    discord: 'https://discord.gg/U26X9mmYnP',
   },
 };
 

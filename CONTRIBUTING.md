@@ -368,7 +368,7 @@ pnpm start
 
 ### Questions and Support
 - **GitHub Issues**: For bugs and feature requests
-- **Discord**: [Join our community](https://discord.gg/EBW93bQZ)
+- **Discord**: [Join our community](https://discord.gg/U26X9mmYnP)
 - **Documentation**: Check existing docs first
 
 ### Code Review Process
