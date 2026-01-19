@@ -29,7 +29,7 @@ export default function LayoutWithNavbar({
           <Sidebar />
           {/* Content with left margin to account for fixed sidebar */}
           <div className="ml-14 sm:ml-56 md:ml-64 overflow-auto">
-            <main className="flex-grow">{children}</main>
+            <main className="flex-grow px-2 sm:px-0">{children}</main>
           </div>
         </div>
       ) : (

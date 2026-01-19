@@ -26,17 +26,17 @@ export default function HomePage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section>
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12">
+        <div className="max-w-5xl mx-auto px-2 sm:px-6 lg:px-8 pt-8 pb-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <h1 className="sm:pt-12 text-5xl md:text-6xl font-bold text-white mb-4">
+            <h1 className="sm:pt-12 text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
               Deploy in 5 Minutes
             </h1>
-            <p className="text-xl text-gray-300">
+            <p className="text-lg sm:text-xl text-gray-300">
               Choose your path: AI-powered deployment with MCP or manual YAML configuration
             </p>
           </motion.div>
@@ -45,7 +45,7 @@ export default function HomePage() {
 
       {/* Choose Your Path Section */}
       <section className="py-12">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-2 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4">
               Choose Your Path
@@ -61,9 +61,9 @@ export default function HomePage() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="bg-[#0a0a0a] rounded-xl p-8 border-2 border-[#22B4C8] hover:border-[#1DA3B6] transition-colors group cursor-pointer relative"
+              className="bg-[#0a0a0a] rounded-xl p-4 sm:p-8 border-2 border-[#22B4C8] hover:border-[#1DA3B6] transition-colors group cursor-pointer relative"
             >
-              <div className="absolute -top-3 -right-3 bg-[#22B4C8] text-black text-sm px-3 py-1 rounded-full font-medium">
+              <div className="absolute -top-3 -right-3 bg-[#22B4C8] text-black text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full font-medium">
                 Recommended
               </div>
               <Link href="/learn/mcp-quickstart" className="block">
