@@ -25,9 +25,10 @@ export default function LayoutWithNavbar({
     <>
       <Navbar />
       {shouldShowSidebar ? (
-        <div className="flex min-h-screen grid-background">
+        <div className="min-h-screen grid-background">
           <Sidebar />
-          <div className="flex-1 overflow-auto">
+          {/* Content with left margin to account for fixed sidebar */}
+          <div className="ml-14 sm:ml-56 md:ml-64 overflow-auto">
             <main className="flex-grow">{children}</main>
           </div>
         </div>

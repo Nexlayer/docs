@@ -19,7 +19,7 @@ export default function Navbar() {
   ]
 
   return (
-    <nav className="border-b border-[#333333] bg-[#191919]/80 backdrop-blur-md sticky top-0 z-50" style={{
+    <nav className="border-b border-[#333333] bg-[#191919]/80 backdrop-blur-md sticky top-0 z-[60]" style={{
       backgroundImage: 'url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nexlayer-background-grid-K7zVWFIHgHj17Jb8BwSJP3hjcgqRrz.svg")'
     }}>
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -93,8 +93,11 @@ export default function Navbar() {
 
       {/* Mobile menu, show/hide based on menu state */}
       {mobileMenuOpen && (
-        <div className="sm:hidden" id="mobile-menu">
-          <div className="pt-2 pb-3 space-y-1 border-t border-[#333]">
+        <div
+          className="sm:hidden absolute left-0 right-0 top-16 z-[60] bg-[#191919]/95 border-b border-[#333] shadow-lg"
+          id="mobile-menu"
+        >
+          <div className="pt-2 pb-3 space-y-1">
             {navItems.map((item) => (
               <Link
                 key={item.path}

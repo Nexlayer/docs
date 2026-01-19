@@ -211,13 +211,13 @@ export default function Sidebar({ setSidebarOpen }: SidebarProps) {
         />
       )}
       <div
-        className={`bg-[#191919] h-screen transition-all duration-300 border-r border-[#333333] ${
+        className={`bg-[#191919] h-screen transition-all duration-300 border-r border-[#333333] fixed top-16 left-0 z-50 ${
           isMobile
             ? mobileOpen
-              ? 'fixed top-16 left-0 w-56 z-50 shadow-lg'
-              : 'sticky top-16 w-14'
-            : 'sticky top-16 w-56 md:w-64'
-        } sm:w-56 overflow-y-hidden`}
+              ? 'w-56 shadow-lg'
+              : 'w-14'
+            : 'w-56 md:w-64'
+        } overflow-y-hidden`}
         style={{
           backgroundImage:
             'url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nexlayer-background-grid-K7zVWFIHgHj17Jb8BwSJP3hjcgqRrz.svg")',
