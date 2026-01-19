@@ -67,7 +67,6 @@ jobs:
           NEXLAYER_API_KEY: ${{ secrets.NEXLAYER_API_KEY }}
         run: |
           # Deploy to Nexlayer using the API
-          curl -X POST https://app.nexlayer.io/startUserDeployment \
+          curl -X POST https://app.nexlayer.io/startUserDeployment/${{ secrets.NEXLAYER_SESSION_TOKEN }} \
             -H "Content-Type: text/x-yaml" \
-            -H "Authorization: Bearer $NEXLAYER_API_KEY" \
             --data-binary @nexlayer.yaml
