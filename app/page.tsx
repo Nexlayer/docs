@@ -17,6 +17,8 @@ import {
   HelpCircle,
   CheckCircle,
   Star,
+  RefreshCw,
+  UserPlus,
 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -34,11 +36,77 @@ export default function HomePage() {
             className="text-center"
           >
             <h1 className="sm:pt-12 text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
-              Deploy in 5 Minutes
+              Welcome to Nexlayer!
             </h1>
-            <p className="text-lg sm:text-xl text-gray-300">
-              Choose your path: AI-powered deployment with MCP or manual YAML configuration
+            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+              In a few minutes, you&apos;ll be set up to deploy production-grade apps from your AI code editor or CLI straight to Nexlayer AI-native Cloud Platform.
             </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* OAuth/SSO Update Notice */}
+      <section className="pb-8">
+        <div className="max-w-3xl mx-auto px-2 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-[#1c2a2d] border border-[#22B4C8] rounded-xl p-6"
+          >
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <CheckCircle className="h-5 w-5 text-[#22B4C8]" />
+              <span className="text-[#22B4C8] font-semibold text-lg">We have updated our MCP to use OAuth/SSO</span>
+            </div>
+            <p className="text-gray-300 text-center text-sm mb-6">
+              Authentication is now simpler and more secure. Choose your path below to get started.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-4">
+              {/* Existing User Path */}
+              <Link
+                href="/learn/mcp-quickstart"
+                className="bg-[#0a0a0a] rounded-lg p-4 border border-[#333] hover:border-[#22B4C8] transition-colors group"
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 bg-[#22B4C8] rounded-full flex items-center justify-center">
+                    <RefreshCw className="h-5 w-5 text-black" />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-medium group-hover:text-[#22B4C8] transition-colors">
+                      Existing MCP User
+                    </h3>
+                    <p className="text-gray-400 text-xs">Update your configuration</p>
+                  </div>
+                </div>
+                <div className="flex items-center text-[#22B4C8] text-sm font-medium">
+                  Click here to update
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </div>
+              </Link>
+
+              {/* New User Path */}
+              <Link
+                href="/learn/mcp-quickstart"
+                className="bg-[#0a0a0a] rounded-lg p-4 border border-[#333] hover:border-[#22B4C8] transition-colors group"
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 bg-[#22B4C8] rounded-full flex items-center justify-center">
+                    <UserPlus className="h-5 w-5 text-black" />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-medium group-hover:text-[#22B4C8] transition-colors">
+                      New User
+                    </h3>
+                    <p className="text-gray-400 text-xs">Set up for the first time</p>
+                  </div>
+                </div>
+                <div className="flex items-center text-[#22B4C8] text-sm font-medium">
+                  Click here to get started
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </div>
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>

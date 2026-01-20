@@ -201,7 +201,6 @@ application:
             transition={{ duration: 0.6 }}
           >
             <div className="flex items-start justify-center mb-6">
-              <Rocket className="h-8 w-8 text-[#22B4C8] mr-3 pt-1" />
               <h1 className="text-4xl md:text-5xl font-bold text-white">
                 Nexlayer YAML Guide
               </h1>
@@ -304,7 +303,7 @@ application:
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card 
-              className="bg-[#0a0a0a] border-green-500/30 hover:border-green-500/50 transition-colors cursor-pointer"
+              className="flex flex-col justify-between bg-[#0a0a0a] border-green-500/30 hover:border-green-500/50 transition-colors cursor-pointer"
               onClick={() => handleTimeCardClick("simple-website")}
             >
               <CardHeader className="pb-3">
@@ -321,7 +320,7 @@ application:
             </Card>
 
             <Card 
-              className="bg-[#0a0a0a] border-blue-500/30 hover:border-blue-500/50 transition-colors cursor-pointer"
+              className="flex flex-col justify-between bg-[#0a0a0a] border-blue-500/30 hover:border-blue-500/50 transition-colors cursor-pointer"
               onClick={() => handleTimeCardClick("fullstack-app")}
             >
               <CardHeader className="pb-3">
@@ -338,7 +337,7 @@ application:
             </Card>
 
             <Card 
-              className="bg-[#0a0a0a] border-purple-500/30 hover:border-purple-500/50 transition-colors cursor-pointer"
+              className="flex flex-col justify-between bg-[#0a0a0a] border-purple-500/30 hover:border-purple-500/50 transition-colors cursor-pointer"
               onClick={() => handleTimeCardClick("api-service")}
             >
               <CardHeader className="pb-3">
@@ -355,7 +354,7 @@ application:
             </Card>
 
             <Card 
-              className="bg-[#0a0a0a] border-orange-500/30 hover:border-orange-500/50 transition-colors cursor-pointer"
+              className="flex flex-col justify-between bg-[#0a0a0a] border-orange-500/30 hover:border-orange-500/50 transition-colors cursor-pointer"
               onClick={() => handleTimeCardClick("ai-app")}
             >
               <CardHeader className="pb-3">
@@ -539,7 +538,6 @@ application:
           <div className="bg-[#0a0a0a] rounded-xl p-8 border border-[#333]">
             <div className="text-center mb-8">
               <h2 className="text-2xl font-bold text-white mb-4 flex items-center justify-center gap-2">
-                <Rocket className="h-6 w-6 text-[#22B4C8]" />
                 Deployment Flow (It's This Simple!)
               </h2>
               <p className="text-gray-300">From YAML to production in just 4 steps</p>

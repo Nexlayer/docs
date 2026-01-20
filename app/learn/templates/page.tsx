@@ -96,7 +96,7 @@ export default function TemplatesPage() {
                 key={index}
                 className='flex flex-col justify-between bg-[#0a0a0a] rounded-xl p-6 border border-[#333] hover:border-[#22B4C8] transition-colors'
               >
-                <div className='flex items-start justify-between mb-4'>
+                <div className='flex max-[1440px]:flex-col-reverse items-start justify-between mb-4'>
                   <div className='flex items-start gap-3'>
                     {template.icon}
                     <h3 className='text-xl font-bold text-white'>
@@ -104,7 +104,7 @@ export default function TemplatesPage() {
                     </h3>
                   </div>
                   <div
-                    className={`${template.color} text-white text-xs px-2 py-1 rounded-full font-medium`}
+                    className={`${template.color} max-[1440px]:mb-3 text-white text-xs px-2 py-1 rounded-full font-medium`}
                   >
                     {template.complexity}
                   </div>
